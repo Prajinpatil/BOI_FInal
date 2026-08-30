@@ -1,0 +1,2 @@
+# Ignore Docker container persistent data volumes
+sandbox_volumes/

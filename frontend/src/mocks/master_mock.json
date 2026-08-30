@@ -1,0 +1,68 @@
+{
+  "app_metadata": {
+    "file_name": "sbi_yono_update_v4.2.1.apk",
+    "package_name": "com.sbi.yono.banking.trojan",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "timestamp": "2026-08-14 16:35:00 UTC",
+    "sdk_version": "Android 14 (API 34)",
+    "file_size": 14680064
+  },
+  "static_analysis": {
+    "permissions": [
+      "android.permission.INTERNET",
+      "android.permission.READ_SMS",
+      "android.permission.RECEIVE_SMS",
+      "android.permission.SEND_SMS",
+      "android.permission.BIND_ACCESSIBILITY_SERVICE",
+      "android.permission.SYSTEM_ALERT_WINDOW",
+      "android.permission.READ_CONTACTS",
+      "android.permission.RECORD_AUDIO",
+      "android.permission.POST_NOTIFICATIONS",
+      "android.permission.REQUEST_INSTALL_PACKAGES"
+    ],
+    "dangerous_permissions": [
+      "android.permission.READ_SMS",
+      "android.permission.RECEIVE_SMS",
+      "android.permission.SEND_SMS",
+      "android.permission.BIND_ACCESSIBILITY_SERVICE",
+      "android.permission.SYSTEM_ALERT_WINDOW",
+      "android.permission.RECORD_AUDIO"
+    ],
+    "target_detected": true,
+    "flagged_target": "SBI YONO / UPI Overlay Banking Trojan",
+    "activities_count": 18,
+    "services_count": 7,
+    "receivers_count": 5,
+    "providers_count": 2
+  },
+  "genai_forensics": {
+    "semantic_score": 0.88,
+    "confidence": "HIGH",
+    "primary_exploit": "ACCESSIBILITY_OVERLAY_OTP_STEAL",
+    "forensic_narrative": "AI AST analysis identified an obfuscated DexPayload executing dynamic reflection to intercept android.provider.Telephony.SMS_RECEIVED. The app registers an AccessibilityService capable of scraping window content over Indian banking app UIs (specifically SBI YONO and BHIM UPI), enabling real-time credential theft and automated 2FA bypass."
+  },
+  "dynamic_analysis": {
+    "network_iocs": [
+      "185.220.101.42:8443 (C2 Gateway)",
+      "https://api.tele-bot-c2.ru/v2/exfil",
+      "dns://tracker.malicious-banker.in"
+    ],
+    "runtime_events": [
+      "Dynamically loaded encrypted DEX payload from assets/core.dat",
+      "Registered BroadcastReceiver for android.provider.Telephony.SMS_RECEIVED",
+      "AccessibilityNodeInfo window content scraped during SBI login activity",
+      "C2 heartbeat HTTP POST transmitted to 185.220.101.42 with device IMEI & SMS payload"
+    ]
+  },
+  "risk_assessment": {
+    "final_score": 89.5,
+    "severity_tier": "CRITICAL",
+    "recommended_action": "IMMEDIATE BLOCK: Flag SHA-256 in SOC firewall, notify CERT-In and RBI CSIR cell, issue device wipe advisory for infected endpoint.",
+    "factor_breakdown": {
+      "p_ml": 0.82,
+      "s_semantic": 0.88,
+      "s_dynamic": 0.75,
+      "target_bonus": 0.15
+    }
+  }
+}

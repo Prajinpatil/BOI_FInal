@@ -1,0 +1,30 @@
+# NIRIKSHAK-AI Backend Dependencies
+# Core API Framework
+fastapi>=0.110.0
+uvicorn[standard]>=0.28.0
+
+# File Upload Support
+python-multipart>=0.0.9
+
+# APK Static Analysis
+androguard>=3.3.5
+
+# HTTP Client for Ollama API
+requests>=2.31.0
+
+# Data Processing & ML (Flexible versions for pre-compiled binary wheels)
+pandas>=2.0.0
+xgboost>=2.0.0
+numpy>=1.24.0
+scikit-learn>=1.3.0
+
+# PDF Report Generation
+reportlab>=4.0.0
+
+# Utilities
+python-dateutil>=2.8.2
+aiofiles>=23.0.0
+
+# Added in Phase 1 & 2 Overhaul
+cryptography>=41.0.0
+openai>=1.0.0

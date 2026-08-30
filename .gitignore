@@ -1,0 +1,78 @@
+# ==========================================
+# 1. Environment Secrets & OS Files
+# ==========================================
+.DS_Store
+Thumbs.db
+.env
+.env.*
+!.env.example
+
+# ==========================================
+# 2. Python & Virtual Environments (Backend)
+# ==========================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+
+# ==========================================
+# 3. Machine Learning Models & Heavy Binaries
+# ==========================================
+# Ignores large XGBoost/pickle weights so git pushes don't fail
+*.pkl
+*.model
+*.h5
+*.joblib
+*.bin
+*.onnx
+
+# ==========================================
+# 4. NIRIKSHAK-AI Application Data & Uploads
+# ==========================================
+# Ignore uploaded malware APKs and compiled PDF reports
+backend/uploads/*
+!backend/uploads/.gitkeep
+backend/reports/*
+!backend/reports/.gitkeep
+uploads/*
+!uploads/.gitkeep
+reports/*
+!reports/.gitkeep
+
+*.apk
+*.pdf
+
+# ==========================================
+# 5. React & Node.js (Frontend / Vite)
+# ==========================================
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+frontend/.eslintcache
+node_modules/
+dist/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ==========================================
+# 6. IDEs & Code Editors
+# ==========================================
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.swp
